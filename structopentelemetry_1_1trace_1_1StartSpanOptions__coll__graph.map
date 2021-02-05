@@ -1,4 +1,0 @@
-<map id="opentelemetry::trace::StartSpanOptions" name="opentelemetry::trace::StartSpanOptions">
-<area shape="rect" id="node2" href="$classopentelemetry_1_1core_1_1SystemTimestamp.html" title="opentelemetry::core\l::SystemTimestamp" alt="" coords="5,5,159,47"/>
-<area shape="rect" id="node3" href="$classopentelemetry_1_1core_1_1SteadyTimestamp.html" title="opentelemetry::core\l::SteadyTimestamp" alt="" coords="183,5,336,47"/>
-</map>
