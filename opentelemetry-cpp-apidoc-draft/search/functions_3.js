@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['forceflush',['ForceFlush',['../classopentelemetry_1_1trace_1_1Tracer.html#ade3b9faef933dc6db0f8a9ffa5018276',1,'opentelemetry::trace::Tracer']]],
-  ['foreachkeyvalue',['ForEachKeyValue',['../classopentelemetry_1_1common_1_1KeyValueIterable.html#a96fa50fcdf0dff279f97f725c0e33318',1,'opentelemetry::common::KeyValueIterable::ForEachKeyValue()'],['../classopentelemetry_1_1trace_1_1SpanContextKeyValueIterable.html#a107bd4f44a0baa09c3c54dccfd0b6bd4',1,'opentelemetry::trace::SpanContextKeyValueIterable::ForEachKeyValue()']]],
-  ['fromheader',['FromHeader',['../classopentelemetry_1_1trace_1_1TraceState.html#a9a2ed3c17b7adcdcf3061342481748e8',1,'opentelemetry::trace::TraceState']]]
+  ['getcurrentspan',['GetCurrentSpan',['../classopentelemetry_1_1trace_1_1Tracer.html#ae7c782b7ee019d7f5b4ff1b70c5b6a9a',1,'opentelemetry::trace::Tracer']]],
+  ['gettracer',['GetTracer',['../classopentelemetry_1_1trace_1_1NoopTracerProvider.html#a77ea6ce751aa84b82e08030c7e42137f',1,'opentelemetry::trace::NoopTracerProvider::GetTracer()'],['../classopentelemetry_1_1trace_1_1TracerProvider.html#a93f305ec4afec0ab9d78de75a71a5e2f',1,'opentelemetry::trace::TracerProvider::GetTracer()']]],
+  ['gettracerprovider',['GetTracerProvider',['../classopentelemetry_1_1trace_1_1Provider.html#afcf6bdd6c040bb585ece3b40fbfa3527',1,'opentelemetry::trace::Provider']]]
 ];

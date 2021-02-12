@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['time_5fsince_5fepoch',['time_since_epoch',['../classopentelemetry_1_1core_1_1SystemTimestamp.html#a8cc88a8d277003f47fa5e5c1a4b3b87b',1,'opentelemetry::core::SystemTimestamp::time_since_epoch()'],['../classopentelemetry_1_1core_1_1SteadyTimestamp.html#a1e72884b6dee54f41a4b828b3c524458',1,'opentelemetry::core::SteadyTimestamp::time_since_epoch()']]],
-  ['toheader',['ToHeader',['../classopentelemetry_1_1trace_1_1TraceState.html#a8731f383f1fc3efac3157ec7f96a5091',1,'opentelemetry::trace::TraceState']]],
-  ['tracer',['Tracer',['../classopentelemetry_1_1trace_1_1Tracer.html',1,'opentelemetry::trace']]],
-  ['tracerprovider',['TracerProvider',['../classopentelemetry_1_1trace_1_1TracerProvider.html',1,'opentelemetry::trace']]],
-  ['tracestate',['TraceState',['../classopentelemetry_1_1trace_1_1TraceState.html',1,'opentelemetry::trace']]]
+  ['unique_5fptr',['unique_ptr',['../classopentelemetry_1_1nostd_1_1unique__ptr.html',1,'opentelemetry::nostd']]],
+  ['unique_5fptr_3c_20const_20char_5b_5d_3e',['unique_ptr&lt; const char[]&gt;',['../classopentelemetry_1_1nostd_1_1unique__ptr.html',1,'opentelemetry::nostd']]],
+  ['unique_5fptr_3c_20context_3a_3atoken_20_3e',['unique_ptr&lt; context::Token &gt;',['../classopentelemetry_1_1nostd_1_1unique__ptr.html',1,'opentelemetry::nostd']]],
+  ['unique_5fptr_3c_20entry_5b_5d_3e',['unique_ptr&lt; Entry[]&gt;',['../classopentelemetry_1_1nostd_1_1unique__ptr.html',1,'opentelemetry::nostd']]]
 ];

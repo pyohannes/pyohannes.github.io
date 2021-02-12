@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['keyvalueiterable',['KeyValueIterable',['../classopentelemetry_1_1common_1_1KeyValueIterable.html',1,'opentelemetry::common']]]
+  ['noopspan',['NoopSpan',['../classopentelemetry_1_1trace_1_1NoopSpan.html',1,'opentelemetry::trace']]],
+  ['nooptracer',['NoopTracer',['../classopentelemetry_1_1trace_1_1NoopTracer.html',1,'opentelemetry::trace']]],
+  ['nooptracerprovider',['NoopTracerProvider',['../classopentelemetry_1_1trace_1_1NoopTracerProvider.html',1,'opentelemetry::trace']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['get',['Get',['../classopentelemetry_1_1trace_1_1TraceState.html#a6e3792fc3e2cea656b938c45d119a9e2',1,'opentelemetry::trace::TraceState']]],
-  ['getcurrentspan',['GetCurrentSpan',['../classopentelemetry_1_1trace_1_1Tracer.html#ae7c782b7ee019d7f5b4ff1b70c5b6a9a',1,'opentelemetry::trace::Tracer']]],
-  ['gettracer',['GetTracer',['../classopentelemetry_1_1trace_1_1NoopTracerProvider.html#a77ea6ce751aa84b82e08030c7e42137f',1,'opentelemetry::trace::NoopTracerProvider::GetTracer()'],['../classopentelemetry_1_1trace_1_1TracerProvider.html#a93f305ec4afec0ab9d78de75a71a5e2f',1,'opentelemetry::trace::TracerProvider::GetTracer()']]],
-  ['gettracerprovider',['GetTracerProvider',['../classopentelemetry_1_1trace_1_1Provider.html#afcf6bdd6c040bb585ece3b40fbfa3527',1,'opentelemetry::trace::Provider']]]
+  ['scope',['Scope',['../classopentelemetry_1_1trace_1_1Scope.html#ab3b891619632d1e0adbc9211ef4477b3',1,'opentelemetry::trace::Scope']]],
+  ['settracerprovider',['SetTracerProvider',['../classopentelemetry_1_1trace_1_1Provider.html#a4f124c8b08f0362998d4173b5bd900ee',1,'opentelemetry::trace::Provider']]],
+  ['size',['size',['../classopentelemetry_1_1common_1_1KeyValueIterable.html#ab34d95f41c48b32e579c7923415b4922',1,'opentelemetry::common::KeyValueIterable::size()'],['../classopentelemetry_1_1trace_1_1SpanContextKeyValueIterable.html#acc6970c723ece6093aae27b749ff6f61',1,'opentelemetry::trace::SpanContextKeyValueIterable::size()']]],
+  ['startspan',['StartSpan',['../classopentelemetry_1_1trace_1_1NoopTracer.html#aa91e9d47993b65cacfe0b523c43bdc80',1,'opentelemetry::trace::NoopTracer::StartSpan()'],['../classopentelemetry_1_1trace_1_1Tracer.html#a5510e81f5a83b0b3c930d62d2ecb3139',1,'opentelemetry::trace::Tracer::StartSpan()']]]
 ];

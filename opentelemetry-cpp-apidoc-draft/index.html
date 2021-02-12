@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>OpenTelemetry C++ API: OpenTelemetry C++</title>
+<title>OpenTelemetry C++ API: Overview</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,67 +63,31 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">OpenTelemetry C++ </div>  </div>
+<div class="title">Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a href="https://gitter.im/open-telemetry/opentelemetry-cpp?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"></a> <a href="https://codecov.io/gh/open-telemetry/opentelemetry-cpp/"></a> <a href="https://github.com/open-telemetry/opentelemetry-cpp/actions"></a> <a href="https://github.com/open-telemetry/opentelemetry-cpp/releases/"></a></p>
-<p>The C++ <a href="https://opentelemetry.io/">OpenTelemetry</a> client.</p>
-<h2>Supported C++ Versions</h2>
-<p>Code shipped from this repository generally supports the following versions of C++ standards:</p>
+<div class="textblock"><p>The OpenTelemetry C++ API enables developers to instrument their applications and libraries in order to make them ready to create and emit telemetry data. The OpenTelemetry C++ API exclusively focuses on instrumentation and does not address concerns like exporting, sampling, and aggregating telemetry data. Those concerns are addressed by the OpenTelemetry C++ SDK. This architecture enables developers to instrument applications and libraries with the OpenTelemetry C++ API while being completely agnostic of how telemetry data is exported and processed.</p>
+<h2>Library design</h2>
+<p>The OpenTelemetry C++ API is provided as a header-only library and supports all recent versions of the C++ standard, down to C++11.</p>
+<p>A single application might dynamically or statically link different libraries that were compiled with different compilers, while several of the linked libraries are instrumented with OpenTelemetry. OpenTelemetry C++ supports those scenarios by providing a stable ABI. This is achieved by a careful API design, and most notably by providing ABI stable versions of classes from the standard library. All those classes are provided in the <code>opentelemetry:nostd</code> namespace.</p>
+<h2>Getting started</h2>
+<h3>Tracing</h3>
+<p>When instrumenting libraries and applications, the most simple approach requires three steps.</p>
+<h4>Obtain a tracer</h4>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> provider = <a class="code" href="classopentelemetry_1_1trace_1_1Provider.html#afcf6bdd6c040bb585ece3b40fbfa3527">opentelemetry::trace::Provider::GetTracerProvider</a>();</div><div class="line"><span class="keyword">auto</span> tracer = provider-&gt;GetTracer(<span class="stringliteral">&quot;foo_library&quot;</span>, <span class="stringliteral">&quot;1.0.0&quot;</span>);</div></div><!-- fragment --><p> The <code>TracerProvider</code> acquired in the first step is a singleton object that is usually provided by the OpenTelemetry C++ SDK. It is used to provide specific implementations for API interfaces. In case no SDK is used, the API provides a default no-op implementation of a <code>TracerProvider</code>.</p>
+<p>The <code>Tracer</code> acquired in the second step is needed to create and start <code>Span</code>s.</p>
+<h4>Start a span</h4>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> span = tracer-&gt;StartSpan(<span class="stringliteral">&quot;HandleRequest&quot;</span>);</div></div><!-- fragment --><p>This creates a span, sets its name to <code>"HandleRequest"</code>, and sets its start time to the current time. Refer to the API documentation for other operations that are available to enrich spans with additional data.</p>
+<h4>Mark a span as active</h4>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> scope = tracer-&gt;WithActiveSpan(span);</div></div><!-- fragment --><p>This marks a span as active and returns a <code>Scope</code> object bound to the lifetime of the span. When the <code>Scope</code> object is destroyed, the related span is ended.</p>
+<p>The concept of an active span is important, as any span that is created without explicitly specifying a parent is parented to the currently active span.</p>
+<h2>Getting help</h2>
 <ul>
-<li>ISO/IEC 14882:2011 (C++11, C++0x)</li>
-<li>ISO/IEC 14882:2014 (C++14, C++1y)</li>
-<li>ISO/IEC 14882:2017 (C++17, C++1z)</li>
-<li>ISO/IEC 14882:2020 (C++20)</li>
+<li>Refer to <a href="https://opentelemetry.io/">opentelemetry.io</a> for general information about OpenTelemetry.</li>
+<li>Refer to the <a href="https://github.com/open-telemetry/opentelemetry-cpp">OpenTelemetry C++ GitHub repository</a> for further information and resources related to OpenTelemetry C++.</li>
+<li>For questions related to OpenTelemetry C++ that are not covered by the existing documentation, please ask away in <a href="https://github.com/open-telemetry/opentelemetry-cpp/discussions">GitHub discussions</a>.</li>
+<li>For bugs and feature requests, write a <a href="https://github.com/open-telemetry/opentelemetry-cpp/issues">GitHub issue</a>. </li>
 </ul>
-<p>Any exceptions to this are noted in the individual <code>README.md</code> files.</p>
-<p>Please note that supporting the <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C Programming Language</a> is not a goal of the current project.</p>
-<h2>Supported Development Platforms</h2>
-<p>Our CI pipeline builds and tests on following <code>x86-64</code> platforms:</p>
-<ul>
-<li>ubuntu-18.04 ( Default GCC Compiler - 7.5.0 )</li>
-<li>ubuntu-18.04 ( GCC 4.8 with -std=c++11 flag )</li>
-<li>ubuntu-20.04 ( Default GCC Compiler - 9.3.0 with -std=c++20 flags )</li>
-<li>macOS 10.15 ( Xcode 12.2 )</li>
-<li>Windows Server 2019 (Visual Studio Enterprise 2019 )</li>
-</ul>
-<p>In general, the code shipped from this repository should build on all platforms having C++ compiler with <a href="#supported-c-versions">supported C++ standards</a>.</p>
-<h2>Installation</h2>
-<p>Please refer to ./INSTALL.md "INSTALL.md".</p>
-<h2>Quick Start</h2>
-<p>The <code>examples/simple</code> directory contains a minimal program demonstrating how to instrument a small library using a simple <code>processor</code> and console <code>exporter</code>, along with build files for CMake and Bazel.</p>
-<h2>Contributing</h2>
-<p>See CONTRIBUTING.md</p>
-<p>We meet weekly, and the time of the meeting alternates between Monday at 15:00 PT and Wednesday at 10:00 PT. The meeting is subject to change depending on contributors' availability. Check the <a href="https://calendar.google.com/calendar/embed?src=google.com_b79e3e90j7bbsa2n2p5an5lf60%40group.calendar.google.com">OpenTelemetry community calendar</a> for specific dates.</p>
-<p>Meetings take place via <a href="https://zoom.us/j/8203130519">Zoom video conference</a>. The passcode is <em>77777</em>.</p>
-<p>Meeting notes are available as a public <a href="https://docs.google.com/document/d/1i1E4-_y4uJ083lCutKGDhkpi3n4_e774SBLi9hPLocw/edit?usp=sharing">Google doc</a>. For edit access, get in touch on <a href="https://gitter.im/open-telemetry/opentelemetry-cpp">Gitter</a>.</p>
-<p>Approvers (<a href="https://github.com/orgs/open-telemetry/teams/cpp-approvers">-telemetry/cpp-approvers</a>):</p>
-<ul>
-<li><a href="https://github.com/pyohannes">Johannes Tax</a>, Microsoft</li>
-<li><a href="https://github.com/jsuereth">Josh Suereth</a>, Google</li>
-<li><a href="https://github.com/maxgolov">Max Golovanov</a>, Microsoft</li>
-<li><a href="https://github.com/rnburn">Ryan Burn</a>, Lightstep</li>
-<li><a href="https://github.com/ThomsonTan">Tom Tan</a>, Microsoft</li>
-</ul>
-<p><em>Find more about the approver role in <a href="https://github.com/open-telemetry/community/blob/main/community-membership.md#approver">community repository</a>.</em></p>
-<p>Maintainers (<a href="https://github.com/orgs/open-telemetry/teams/cpp-maintainers">-telemetry/cpp-maintainers</a>):</p>
-<ul>
-<li><a href="https://github.com/g-easy">Emil Mikulic</a>, Google</li>
-<li><a href="https://github.com/lalitb">Lalit Kumar Bhasin</a>, Microsoft</li>
-<li><a href="https://github.com/reyang">Reiley Yang</a>, Microsoft</li>
-</ul>
-<p><em>Find more about the maintainer role in <a href="https://github.com/open-telemetry/community/blob/main/community-membership.md#maintainer">community repository</a>.</em></p>
-<p>Triagers (<a href="https://github.com/orgs/open-telemetry/teams/cpp-triagers">-telemetry/cpp-triagers</a>):</p>
-<ul>
-<li><a href="https://github.com/alolita">Alolita Sharma</a>, Amazon</li>
-<li><a href="https://github.com/jodeev">Jodee Varney</a>, New Relic</li>
-</ul>
-<p><em>Find more about the triager role in <a href="https://github.com/open-telemetry/community/blob/main/community-membership.md#triager">community repository</a>.</em></p>
-<h2>Release Schedule</h2>
-<p>OpenTelemetry C++ is under active development.</p>
-<p>The API and SDK packages are <b>not yet generally available</b>, and releases are not guaranteed to conform to a specific version of the specification. Future releases will not attempt to maintain backwards compatibility with previous releases. Each alpha and beta release could include significant changes to the API and SDK packages, making them incompatible with each other.</p>
-<p>See the <a href="https://github.com/open-telemetry/opentelemetry-cpp/releases">release notes</a> for existing releases.</p>
-<p>See the <a href="https://github.com/open-telemetry/opentelemetry-cpp/milestones">project milestones</a> for details on upcoming releases. The dates and features described in issues and milestones are estimates, and subject to change. </p>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.13-->
 <!-- start footer part -->
